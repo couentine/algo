@@ -1,0 +1,25 @@
+
+
+array = [248, 185, 22, 288, 128, 234, 24, 206, 220, 25, 101, 91, 107, 50, 130, 229, 124, 249, 274, 92, 155, 186, 236, 32, 88, 86, 84, 273, 183, 213, 11, 232, 190, 108, 176, 167, 35, 241, 71, 16, 228, 194, 165, 179, 56, 264, 154, 191, 272, 64]
+
+Quick Sort: puts Benchmark.measure {quickSort(array, 0, array.length - 1)}
+Results: 0.000000 0.000000 0.000000 ( 0.000101)
+
+Heap Sort: puts Benchmark.measure {heapSort(array)}
+Results: 0.000000 0.000000 0.000000 ( 0.000550)
+
+Bucket Sort (5 buckets): puts Benchmark.measure {minMax(array)}
+Results: 0.000000 0.000000 0.000000 ( 0.001314)
+
+Bucket Sort (10 buckets): puts Benchmark.measure {minMax(array)}
+Results: 0.000000 0.000000 0.000000 ( 0.001061)
+
+Looking at the bar chart, speculate on why you think some sort algorithms are faster than others and provide rationale as to your thought process.
+
+The Heap Sort is actually a lot faster than I expected it to be. And I think if I fully understood the heap data structure at the beginning, I could have written it more effeciently. In all actuality, I only really had my "Aha moment" about the heap data structure an hour or 2 before I finished the Bucket Sort. If I'd spent more time focusing on the "leaves" rather than the parents, I believe I could have scored it in the high 300's or low 400's. And after the top-bottom switch has been made, that's the only heap you have to deal with. Mine isn't optimized like that.
+
+Conversely, the Bucket Sort is a lot slower than I expected it to be. Though I could speed up the bucket sort by using more buckets. Currently it's only set to use 5 buckets and that gives an average of 10 values per bucket. The more data in each bucket, the longer it'll take to work out.
+
+Actually, I just doubled the number of buckets and it dropped the time to run from 0.001314 to 0.001061 with the same data set. That's a respectable change, but not enough to justify using Bucket Sort over Quick Sort.
+
+And as to why Quick Sort is so fast, I really don't know.
